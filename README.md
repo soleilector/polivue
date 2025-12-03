@@ -3,13 +3,13 @@ A personal project using Amazon S3, Microsoft's MCP, and LLM engines to create r
 
 # How to Use
 
-# Upload Policy Documents, Report Structure Guildelines and Examples, Analysis Items, etc...
+## Upload Policy Documents, Report Structure Guildelines and Examples, Analysis Items, etc...
 1. Navigate to **Policies** Page
 2. Select File to upload (Choose unique file name to prevent overwriting)
 3. Confirm via provided file preview
 4. Select upload
 
-# Connecting MCP Servers
+## Connecting MCP Servers
 ### IntelliJ Idea
 1. Follow directions [here](https://www.jetbrains.com/help/idea/mcp-server.html#external-client-setup) to configure your IntelliJ installation as a Microsoft MCP server
 2. Use Copy SSE Config to find <MACHINE LAN IP> and <PORT> values under the ***url*** parameter
@@ -20,4 +20,4 @@ type: 'url',
 url: '<MACHINE LAN IP / IPv4 ADDRESS HERE>:<PORT>/api/mcp/sse',
 name: 'intellij'
 ```
-5. 
+5. Add MCP Connection to query when using Hadi to begin using as context to inquiries
