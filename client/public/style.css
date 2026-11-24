@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/****** General Elements */
+.datatable {
+    max-width:80%;
+}
+.app-icon {
+    color:white;
+    background:none;
+}
+.app-icon.black {
+    color:black;
+}
+.app-icon.accent {
+    color: #133b4a;
+}
+.hadiResponse .app-icon, /* Allow size to transition when hadi is thinking */
+.hadiLoading .app-icon {
+    transition: font-size 0.3s ease, color 0.3s ease;; /* Adjust duration and timing as needed */
+}
+
+.hadiResponse .app-icon {
+    font-size:20px;
+}
+.hadiLoading .app-icon { /* Size changes when hadi is thinking */
+    color: #5cc7d1 !important;
+    font-size: 30px !important;
+}
+ul {
+    margin-left: 10px; !important;
+}
+.centerChildren {
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+
+/** FORMS */
+button {
+    background: #0f6e6b;
+    color: white;
+    border: 0;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+}
+button:hover {
+    background: #117f7b;
+}
+
+button .uploadFile {
+    background: #979f6c;
+    color: white;
+    margin:auto;
+}
+
+div.uploadFile {
+    min-height:50px;
+    border:0px;
+    border-top: 1px dotted darkgrey;
+}
+div.uploadFile p {
+    font-style: italic;
+    vertical-align: center;
+}
+
+div.uploadFileCtrl {
+    width:100%;
+    display: inline-block;
+}
+div.uploadFileCtrl span.uploadState {
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+label[for='policyFileUploader'] {
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    min-width: 30%;
+    text-align: left;
+    max-height:30px;
+}
+/*=== FOR POPUPS */
+.popup {
+    background:#ebebeb;
+    border-radius: 10px;
+    padding:10px;
+    display: block;
+    visibility: hidden;
+    z-index:10;
+    top:15%;
+    right:25%;
+    position: absolute;
+    min-width: 0%;
+    max-width: 0%;
+    height:0px;
+    transition: opacity 0.3s ease, visibility 0.3s ease, min-width 0.3s ease, max-width 0.3s ease;
+}
+.popup.show {
+    display:block;
+    opacity:1;
+    visibility: visible;
+    min-width: 50%;
+    height: 500px;
+}
+.pdf-preview {
+    width:100%;
+    height:450px;
+}
+
+/***** HADI */
+.hadiDocList {
+    background:#ebebeb;
+    border-radius: 10px;
+    padding:10px;
+    display: block;
+    visibility: hidden;
+    z-index:10;
+    top:15%;
+    right:25%;
+    position: absolute;
+    min-width: 0%;
+    max-width: 0%;
+    height:0px;
+    transition: opacity 0.3s ease, visibility 0.3s ease, min-width 0.3s ease, max-width 0.3s ease;
+}
+.hadiDocList.show {
+    display:block;
+    opacity:1;
+    visibility: visible;
+    min-width: 50%;
+    height: 500px;
+}
+.hadiSearch {
+    margin:auto;
+    width:80%;
+}
+
+.hadiSearchQueryBox {
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+.hadiSearch.query {
+    border: 0px;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: lightgray;
+    color: #4b4b4b;
+    font-style: italic;
+    display:inline;
+}
+.hadiSearch.query:focus {
+    outline: none;
+}
+.hadiRetry {
+    margin-left: 10px;
+    border-radius: 15px;
+}
+.hadiSearchQueryBox.docCt {
+    font-family: Georgia, serif !important;
+    font-weight: bold;
+    font-size: 14pt;
+    font-style: italic;
+    display:inline;
+}
+.docIcon {
+    display: inline;
+    vertical-align: center;
+}
+.hadiResponse {
+    min-height:50px;
+    display: flex;
+    justify-content: left;
+}
+.hadiResponse.longAnswer {
+    min-height: 500px;
+    transition: min-height 0.75s ease
+}
+.hadiResponse.loading {
+    padding-left: 10px;
+    padding-top: 3px;
+}
+/* Saving Hadi's response as a policy */
+.hadiUploadStatus {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+.hadiUploadStatus p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.hadiUploadStatus .uploadSuccess {
+    color: green;
+}
+.hadiUploadStatus .uploadFailed {
+    color: red;
+}
+.hadiUploadStatus .uploadLink {
+    font-family: monospace;
+    font-size: 12pt;
+    word-break: break-all;
+}
+.fadeIn {
+    animation: fadeIn 1s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Edit button that stays in view while scrolling */
+.floatingEdit {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+}
+.floatingEdit button {
+    border-radius: 30px;
+    padding: 15px 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.markdownEditor {
+    width: 90%;
+    margin: auto;
+}
+/* Markdown inside Hadi's response */
+.hadiMarkdown {
+    flex: 1;
+    min-width: 0;
+    padding-left: 10px;
+    overflow-wrap: anywhere;
+}
+.hadiMarkdown h1, .hadiMarkdown h2, .hadiMarkdown h3, .hadiMarkdown h4 {
+    margin: 12px 0 6px 0;
+}
+.hadiMarkdown p {
+    margin: 0 0 10px 0;
+}
+.hadiMarkdown ul, .hadiMarkdown ol {
+    margin: 0 0 10px 20px;
+}
+.hadiMarkdown table {
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.hadiMarkdown th, .hadiMarkdown td {
+    border: 1px solid darkgrey;
+    padding: 4px 8px;
+}
+.hadiMarkdown code, .hadiMarkdown pre {
+    background: #eee;
+    padding: 2px 4px;
+}
+.hadiMarkdown pre {
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+/****** Website Architecture */
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+/** Page Sections */
+.pg-heading, .pg-main, .pg-footer {
+    display: block;
+    min-width: 100%;
+}
+.pg-heading, .pg-footer {
+    background: #133b4a;
+}
+.pg-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+.pg-main{
+    display: flex;
+    justify-content: space-between;
+}
+.pg-main.sidebar-open > .pg-content { /* Sidebar open state */
+    min-width: 80%;
+    max-width: 80%;
+}
+.pg-sidebar {
+    display: inline-block;
+    opacity: 0;
+    border-right: 1px solid lightgray;
+    background: white;
+    visibility: hidden;
+    min-width: 0%;
+    max-width: 0%;
+    transition: opacity 0.3s ease, visibility 0.3s ease, min-width 0.3s ease, max-width 0.3s ease;
+}
+.pg-main.sidebar-open > .pg-sidebar { /* Sidebar-open state */
+    opacity: 1;
+    visibility: visible;
+    min-width: 20%;
+    max-width: 20%;
+}
+
+/** Page Navigation */
+.pg-nav {
+    padding-left: 20px;
+}
+.pg-nav > button {
+    margin: 10px;
+    background: none;
+}
+.pg-title {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.pg-content {
+    padding: 10px;
+    display: inline-block;
+    background: white;
+    background: linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 82%, rgba(202, 223, 235, 1) 100%); !important;
+    min-width: 100%;
+    min-height:800px;
+    max-width: 100%;
+    transition: opacity 0.3s ease, visibility 0.3s ease, min-width 0.3s ease, max-width 0.3s ease;
+}
+
+/* Query page: shown instead of the chat when there is no Anthropic connection */
+.anthropicNotice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+  min-height: 60vh;
+}
+.hadiModel {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+/* Document status tags (documents list and view page) */
+.statusTag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.statusTag.status-resolved { background-color: #d4f4dd; color: #1e6b34; } /* pale green */
+.statusTag.status-unresolved { background-color: #f8d7da; color: #842029; } /* pale red */
+.statusTag.status-remediating { background-color: #ffe5cc; color: #8a4b08; } /* pale orange */
+.statusTag.status-unknown { background-color: #e2e3e5; color: #41464b; } /* the status could not be read */
+.docTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75em;
+}
+.docStatus {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Dashboard */
+.dashboardRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.dashboardBox {
+  flex: 1 1 280px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 1px 4px rgba(19, 59, 74, 0.15);
+}
+.dashboardWide {
+  flex-basis: 100%;
+}
+.dashboardBoxHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.dashboardBigNumber {
+  font-size: 3.5em;
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+.dashboardNote, .dashboardEmpty {
+  color: #5f6b70;
+  font-size: 0.9em;
+}
+.dashboardStatusBody {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1em;
+}
+.dashboardStatusNumbers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 200px;
+}
+.dashboardStatusNumbers li {
+  margin: 0.5em 0;
+}
+.dashboardStatusNumber {
+  display: inline-block;
+  min-width: 2.5em;
+  font-size: 2em;
+  font-weight: bold;
+}
+.dashboardStatusChart {
+  flex: 2 1 320px;
+}
